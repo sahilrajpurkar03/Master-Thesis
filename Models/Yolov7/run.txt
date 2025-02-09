@@ -1,0 +1,13 @@
+%% For Training 
+python train.py --batch 16 --cfg /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/yolov7/cfg/training/custom_yolov7.yaml --epochs 1000 --data /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/yolov7/data/custom.yaml --weights 'yolov7.pt' --device 0
+
+%% For detection
+python detect.py --weights /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/yolov7/runs/train/exp/weights/best.pt  --source /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/images/test
+
+%% For Automated-Labelling 
+python detect.py --weights /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/yolov7/runs/train/exp/weights/best.pt --source /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/images --save-txt --project labels --name run --exist-ok
+
+
+exp7 - dynamic_Test
+exp8 - RADAR_STATIC 
+exp9 - RADAR_DYNAMIC
