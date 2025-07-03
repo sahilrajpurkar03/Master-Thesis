@@ -63,7 +63,9 @@ Begin by flashing the IWR6843ISK with TI's default firmware:
 ### 🧰 Hardware Setup
 
 Refer to the image for physical connection and jumper setup:  
-![Hardware Setup](docs/hardware_setup.png)
+<p align="center">
+  <img src="docs/hardware_setup.png" alt="Hardware Setup" width="600"/>
+</p>
 
 ---
 
@@ -85,3 +87,13 @@ Refer to the image for physical connection and jumper setup:
    ```bash
    cd "01. Sensor Integration"
    python py_mmw_main.py
+
+## 02. Data Collection
+
+The datasets used in this project include both raw and arranged data, which have been made publicly available on Kaggle.
+
+- **Kaggle Repository – Arranged Dataset:**  
+  [https://www.kaggle.com/mmwave-radar-dataset](https://www.kaggle.com/mmwave-radar-dataset)
+
+- **Kaggle Repository – Raw Dataset:**  
+  [https://www.kaggle.com/mmwave-radar-dataset-r](https://www.kaggle.com/mmwave-radar-dataset-raw)
