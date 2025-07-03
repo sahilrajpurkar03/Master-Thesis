@@ -98,4 +98,36 @@ The datasets used in this project include both raw and arranged data, which have
 - **Kaggle Repository – Raw Dataset:**  
   [https://www.kaggle.com/mmwave-radar-dataset-raw](https://www.kaggle.com/mmwave-radar-dataset-raw)
 
-## 03. Data Annotation
+## 03. Preprocessing and Annotation
+
+## 04. Model Training & Evaluation
+## 05. Real-Time Testing
+## 06. Results & Analysis
+## 07. Future Work
+
+---
+
+## Project Information
+
+**University:**  
+Technical University of Dortmund  
+
+**Thesis Title:**  
+Towards 6G-Driven Sensing: Development of Machine Learning-based Radar Object Detection for Logistics Entities  
+
+**Degree Program:**  
+Master of Science in Automation and Robotics  
+
+**Presented by:**  
+Sahil Sanjay Rajpurkar    
+
+**Supervisors:**  
+- First Examiner: Prof.’in Dr.-Ing. Alice Kirchheim  
+- Second Examiner: Irfan Fachrudin Priyanta, M.Sc.   
+
+**Place of Submission:** Dortmund, Germany  
+
+---
+
+© 2025 Sahil Sanjay Rajpurkar.  
+This repository is intended solely for academic and study purposes. Commercial use is not permitted.
