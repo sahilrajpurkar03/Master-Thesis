@@ -1,5 +1,26 @@
-# Master Thesis  
-**Towards 6G-Driven Sensing: Development of Machine Learning-based Object Detection for Logistics Entities using mmWave Radar Sensor**
+# Master Thesis: **Towards 6G-Driven Sensing: Development of Machine Learning-based Object Detection for Logistics Entities using mmWave Radar Sensor**
+
+---
+
+## 📄 Thesis Overview
+
+This thesis investigates the potential of mmWave radar sensors for object detection in logistics environments, offering an alternative to traditional camera and LiDAR-based systems. These conventional systems suffer from drawbacks such as high costs, sensitivity to lighting and weather conditions, privacy concerns, and occlusion issues in complex warehouse environments.
+
+To address these limitations, the study integrates the Texas Instruments **IWR6843ISK** mmWave radar sensor into a logistics setting and develops a machine learning-based object detection pipeline. Models such as **YOLOv7**, **Detectron2**, and **OpenPCDet** are trained and evaluated for detecting logistics entities like forklifts, mobile robots, and small load carriers (KLTs). The system is assessed for real-time performance in dynamic and cluttered environments, demonstrating the benefits of radar-based sensing—such as high resolution, environmental robustness, and reliable operation in low-visibility conditions.
+
+This research contributes to the vision of 6G-driven smart logistics by offering a cost-effective, scalable, and privacy-preserving sensing alternative for industrial automation.
+
+---
+
+## 📚 Repository Index
+
+1. [Sensor Integration](#01-sensor-integration)
+2. [Data Collection](#02-data-collection)
+3. [Preprocessing and Annotation](#03-preprocessing-and-annotation)
+4. [Model Training & Evaluation](#04-model-training--evaluation)
+5. [Real-Time Testing](#05-real-time-testing)
+6. [Results & Analysis](#06-results--analysis)
+7. [Future Work](#07-future-work)
 
 ---
 
