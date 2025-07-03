@@ -110,7 +110,9 @@ The datasets used in this project include both raw and arranged data, which have
 ## Project Information
 
 **University:**  
-Technical University of Dortmund  
+Technical University Dortmund (Technische Universität Dortmund)  
+Faculty of Mechanical Engineering  
+Chair of Material Handling and Warehousing  
 
 **Thesis Title:**  
 Towards 6G-Driven Sensing: Development of Machine Learning-based Radar Object Detection for Logistics Entities  
