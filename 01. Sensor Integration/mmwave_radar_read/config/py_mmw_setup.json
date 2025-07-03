@@ -1,0 +1,7 @@
+{
+    "configFileName": "config/xwr68xx_profile_2_1510.cfg",
+    "visualizer": true,
+    "controlPort": "/dev/ttyACM0",
+    "dataPort": "/dev/ttyACM1",
+    "fileName": "log/test_robomaster_moves_mmwave_sensor_10_cfar"
+}
