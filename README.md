@@ -85,7 +85,7 @@ Refer to the image for physical connection and jumper setup:
 2. Run the following command to start data capture:
 
    ```bash
-   cd "01. Sensor Integration"
+   cd 01_SensorIntegration
    python py_mmw_main.py
 
 ## 02. Data Collection
@@ -97,3 +97,5 @@ The datasets used in this project include both raw and arranged data, which have
 
 - **Kaggle Repository – Raw Dataset:**  
   [https://www.kaggle.com/mmwave-radar-dataset-raw](https://www.kaggle.com/mmwave-radar-dataset-raw)
+
+## 03. Data Annotation
