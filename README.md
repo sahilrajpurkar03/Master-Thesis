@@ -3,7 +3,7 @@
 
 ## 01. Sensor Integration
 
-This section details the integration of the mmWave radar sensor used for data acquisition. The sensors employed are **IWR6843ISK** mounted on the **MMWAVEICBOOST** evaluation module by Texas Instruments (TI).
+This section details the integration of the mmWave radar sensor used for data acquisition. The sensors employed are **[IWR6843ISK](https://www.ti.com/tool/IWR6843ISK)** mounted on the **[MMWAVEICBOOST](https://www.ti.com/tool/MMWAVEICBOOST)** evaluation module by Texas Instruments (TI).
 
 ### Flashing the Default Firmware
 
@@ -18,7 +18,7 @@ To begin, flash the IWR6843ISK with the default TI firmware.
 
 #### Flash Steps (using UniFlash on Windows)
 
-1. Launch **UniFlash**.
+1. Launch **[UniFlash](https://www.ti.com/tool/UNIFLASH)**.
 2. In *New Configuration*, select your device and click **Start**.
 3. Go to the *Settings & Utilities* tab:
    - Set the COM port of the **CFG Port**.
@@ -34,7 +34,7 @@ Once complete, the firmware is successfully flashed.
 ### Hardware Setup
 
 Refer to the image for physical setup:  
-📷 `docs/hardware_setup.png`
+![Hardware Setup](docs/hardware_setup.png)
 
 #### Switch Configuration for MMWAVEICBOOST Mode
 
@@ -47,10 +47,10 @@ Refer to the image for physical setup:
 ### Running the Radar Sensor
 
 1. Use the provided configuration file:  
-   `01. Sensor Integration/mmwave_radar_read/config/xwr68xx_profile_2.cfg`
+- [xwr68xx_profile_2.cfg](./01.%20Sensor%20Integration/mmwave_radar_read/config/xwr68xx_profile_2.cfg)  
 
 2. Navigate to the script directory and run:
 
    ```bash
-   cd "01. Sensor Integration"
+   cd 01_SensorIntegration/
    python py_mmw_main.py
