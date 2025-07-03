@@ -64,7 +64,7 @@ Begin by flashing the IWR6843ISK with TI's default firmware:
 
 Refer to the image for physical connection and jumper setup:  
 <p align="center">
-  <img src="docs/hardware_setup.png" alt="Hardware Setup" width="600"/>
+  <img src="docs/hardware_setup.png" alt="Hardware Setup" width="400"/>
 </p>
 
 ---
@@ -96,4 +96,4 @@ The datasets used in this project include both raw and arranged data, which have
   [https://www.kaggle.com/mmwave-radar-dataset](https://www.kaggle.com/mmwave-radar-dataset)
 
 - **Kaggle Repository – Raw Dataset:**  
-  [https://www.kaggle.com/mmwave-radar-dataset-r](https://www.kaggle.com/mmwave-radar-dataset-raw)
+  [https://www.kaggle.com/mmwave-radar-dataset-raw](https://www.kaggle.com/mmwave-radar-dataset-raw)
