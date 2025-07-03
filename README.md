@@ -1,1 +1,1 @@
-# Master-Thesis
+# Master-Thesis: Towards 6G-Driven Sensing: Development of Machine Learning-based Object Detection for Logistics Entities using mmWave Radar Sensor 
