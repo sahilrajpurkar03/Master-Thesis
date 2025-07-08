@@ -1,0 +1,10 @@
+train: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/train.txt
+val: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/val.txt
+test: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/test.txt
+
+
+# number of classes
+nc: 4
+
+# class names
+names: [ 'Forklift+KLT', 'Robotnik', 'Forklift', 'Workstation']
