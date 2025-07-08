@@ -88,14 +88,14 @@ Refer to the image for physical connection and jumper setup:
    cd 01_SensorIntegration
    python py_mmw_main.py
 
-## Captured Output Data
-- Saved in: `01_SensorIntegration/log/` as `.txt` files
-- Contains per timestamp:
-  - Number of points detected
-  - Range, azimuth, elevation
-  - x,y,z coordinates
-  - Velocity (v)
-  - Range profile and SNR
+3.  Captured Output Data
+   - Saved in: `01_SensorIntegration/log/` as `.txt` files
+   - Contains per timestamp:
+      - Number of points detected
+      - Range, azimuth, elevation
+      - x,y,z coordinates
+      - Velocity (v)
+      - Range profile and SNR
 
 ## 02. Data Collection
 
