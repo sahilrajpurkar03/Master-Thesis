@@ -116,7 +116,7 @@ cd 02_DataPreprocessing/Yolov7/
 python3 Gen-Range-Azimuth-2D-Histogram.py
 ```
 
-### Annotation Process
+#### Annotation Process
 Use [LabelImg](https://github.com/HumanSignal/labelImg) for annotation:
    - Load images
    - Draw bounding boxes
@@ -128,7 +128,7 @@ This process generates labels in YOLOv7 format.
   <img src="docs/labelimg_example.png" alt="LabelImg Interface" width="800"/>
 </p>
 
-### Dataset Directory Structure
+#### Dataset Directory Structure
 
 #### For YOLOv7:
 Organize the dataset in the following structure for train/test/validation splits:
@@ -177,14 +177,14 @@ cd 02_DataPreprocessing/Detectron2/
 python3 yolo_to_coco.py
 ```
 
-## 3.2 3D Point Cloud Dataset Creation
+### 3.2 3D Point Cloud Dataset Creation
 
 To convert collected raw log files into 3D point cloud frames, execute the following command. This will generate the dataset in `.pcd` format, which is required for the annotation software LabelCloud:
 ```bash
 cd 02_DataPreprocessing/OpenPCdet/
 python3 txt_to_pcd.py
 ```
-### Annotation Process
+#### Annotation Process
 
 Use [LabelCloud](https://github.com/ch-sa/labelCloud) for annotation:
 
@@ -196,7 +196,7 @@ Use [LabelCloud](https://github.com/ch-sa/labelCloud) for annotation:
   <img src="docs/labelcloud_example.png" alt="LabelImg Interface" width="800"/>
 </p>
 
-### Dataset Format for OpenPCDet
+#### Dataset Format for OpenPCDet
 
 After annotation is complete, convert the `.pcd` format dataset to `.npy` format, as the model requires data in `.npy` format. Use the following command:
 ```bash
