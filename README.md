@@ -230,6 +230,89 @@ Once the conversion is done, organize the dataset as follows:
 
 
 ## 04. Model Training & Evaluation
+
+### 4.1 [YOLOv7](https://github.com/WongKinYiu/yolov7) Model Training
+
+#### Dataset Preparation
+After arranging the dataset, move the dataset folders to the following directories:
+
+- `images` → `03_ModelTraining/Yolov7/images`
+- `labels` → `03_ModelTraining/Yolov7/labels`
+
+#### Generate Dataset Paths
+Run the following commands to create `train.txt`, `test.txt`, and `val.txt`, which contain the paths to all dataset images:
+
+```bash
+cd 03_ModelTraining/Yolov7
+python3 save_image_path.py
+```
+
+#### Configuration Settings
+
+1. Write the class names in the `classes.txt` file.
+
+2. Open and edit `03_ModelTraining/Yolov7/yolov7/cfg/training/custom_yolov7.yaml`:
+
+    - Update the number of classes (`nc`) according to your dataset:
+    
+    ```yaml
+    nc: 4  # number of classes
+    ```
+
+3. Open and edit `03_ModelTraining/Yolov7/yolov7/data/custom.yaml` to set dataset paths and class names:
+
+    ```yaml
+    train: /path/to/train.txt
+    val: /path/to/val.txt
+    test: /path/to/test.txt
+
+    nc: 4  # number of classes
+
+    names: ['Forklift+KLT', 'Robotnik', 'Forklift', 'Workstation']
+    ```
+
+#### Training the Model
+
+Run the following command to train the YOLOv7 model:
+
+```bash
+python train.py --batch 16 --cfg 03_ModelTraining/Yolov7/yolov7/cfg/training/custom_yolov7.yaml --epochs 1000 --data 03_ModelTraining/Yolov7/yolov7/data/custom.yaml --weights yolov7.pt --device 0
+```
+#### Model Evaluation
+
+After training, evaluate the model using this command:
+
+```bash
+python detect.py --weights 03_ModelTraining/Yolov7/yolov7/runs/train/exp/weights/best.pt --source 03_ModelTraining/Yolov7/images/test
+```
+#### Trained Model and Outputs
+
+The trained model and outputs can be found in the following directory: `03_ModelTraining/Yolov7/yolov7/runs`
+
+#### Additional: Automated Labeling
+
+You can use the trained model for automated labeling using the following command:
+
+```bash
+python detect.py --weights 03_ModelTraining/Yolov7/yolov7/runs/train/exp/weights/best.pt --source /path/to/images --save-txt --project labels --name run --exist-ok
+```
+This will generate label `.txt` files for the given images and save them under the `labels/run` directory.
+
+### 4.2 [Detectron2](https://github.com/facebookresearch/detectron2) Model Training
+#### Dataset Preparation
+After arranging the dataset, move the dataset folders to the following directories:`03_ModelTraining/Detectron2/images`
+
+#### Training and Evaluation of the Model
+
+To train the Detectron2 model, run the live script located at: `03_ModelTraining/Detectron2/script.ipynb`
+
+This notebook allows you to modify the backbone architecture for training. In this project, both **RetinaNet** and **Faster R-CNN** were used as backbone models.
+
+#### Trained Model and Outputs
+The trained model and output files can be found in the following directory: `03_ModelTraining/Detectron2/output`
+
+### 4.3 [OpenPCdet](https://github.com/open-mmlab/OpenPCDet) Model Training
+
 ## 05. Real-Time Testing
 ## 06. Results & Analysis
 ## 07. Future Work

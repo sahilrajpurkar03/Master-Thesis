@@ -1,6 +1,6 @@
-train: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/train.txt
-val: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/val.txt
-test: /home/dartagnan-dev/sahil-dev/model_testing/YOLOv7_test/test.txt
+train: /path/to/train.txt
+val: /path/to/val.txt
+test: /path/to/test.txt
 
 
 # number of classes

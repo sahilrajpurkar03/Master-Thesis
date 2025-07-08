@@ -1,0 +1,44 @@
+{
+    "images": [
+        {
+            "id": 1,
+            "file_name": "RADAR_DYNAMIC_OBJECT1_MOVEMENT1_frame0096.jpg",
+            "width": 3000,
+            "height": 2400
+        }
+    ],
+    "annotations": [
+        {
+            "id": 1,
+            "image_id": 1,
+            "category_id": 1,
+            "bbox": [
+                1670.9985000000004,
+                1112.0004,
+                512.0010000000001,
+                337.99920000000003
+            ],
+            "area": 173055.92839920006,
+            "iscrowd": 0
+        },
+
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Forklift+KLT"
+        },
+        {
+            "id": 2,
+            "name": "Robotnik"
+        },
+        {
+            "id": 3,
+            "name": "Forklift"
+        },
+        {
+            "id": 4,
+            "name": "Workstation"
+        }
+    ]
+}
