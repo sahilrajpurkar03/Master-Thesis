@@ -1,6 +1,6 @@
 # Master Thesis: **Towards 6G-Driven Sensing: Development of Machine Learning-based Object Detection for Logistics Entities using mmWave Radar Sensor**
 
-![OpenPCDet Result](docs/openpcdet_result.gif)
+![OpenPCDet Result](docs/results/openpcdet_result.gif)
 ---
 
 ## 📄 Thesis Overview
@@ -415,24 +415,33 @@ python3 online_model_test.py
 ```
 Here is the small video of online testing:
 
-![Online Testing Demo](docs/online_model_testing.gif)
+![Online Testing Demo](docs/results/online_model_testing.gif)
 
 ## 06. Results & Analysis
 
 Here is the result for the range-azimuth 2D histogram dataset using the Yolov7 trained model:
 
-![Yolov7 Result](docs/yolov7_result.gif)
+![Yolov7 Result](docs/results/yolov7_result.gif)
 
 Here is the result of the 3D point cloud dataset using the OpenPCDet model:
 
-![OpenPCDet Result](docs/openpcdet_result.gif)
+![OpenPCDet Result](docs/results/openpcdet_result.gif)
 
 This result is compared with the benchmarked detection system (Vicon), and here is the comparison graph of it:
 
-![Comparison Graph](docs/comparsion.png)
+![Comparison Graph](docs/results/comparsion.png)
 
 ## 07. Future Work
 This study focuses on object detection for indoor logistics using mmWave radar sensors, leveraging range-azimuth and 3D point cloud data. Future improvements include integrating additional sensor outputs like velocity and SNR through parallel models, expanding coverage with multiple sensors and stitching algorithms, and using higher-resolution industrial-grade radars for denser point clouds enabling object segmentation. Applications extend to real-time object avoidance on mobile robots, aerial monitoring with drones, and collaborative robotics, aiming to develop more accurate and versatile sensing systems for indoor logistics and beyond.
+
+---
+
+## Documentation
+
+For detailed documentation, please refer to the report:  
+[docs/MasterThesisReport.pdf](docs/report/MasterThesisReport_242976_Towards6GSensing.pdf)
+
+---
 
 ## Project Information
 
