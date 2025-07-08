@@ -56,8 +56,8 @@ def process_and_save_heatmaps(input_file, output_dir):
 
 def main():
     # Hard-coded settings with corrected file paths
-    input_file = r'/home/dartagnan-dev/sahil-dev/custom_dataset/00_RAW_DATASET/mmWave_Sensor/RADAR_DYNAMIC_OBJECT1_MOVEMENT2.txt'
-    output_dir = r'/home/dartagnan-dev/sahil-dev/custom_dataset/02_RADAR_DATA_PLOT/Range-Azimuth-2D-Histogram'
+    input_file = r'E:\your\path\to\file.txt'  # Replace with your actual input file path
+    output_dir = 'E:\your\path\to\Range-Azimuth-2D-Histogram\output'  # Replace with your desired output directory path
 
     # Process and save heatmaps
     process_and_save_heatmaps(input_file, output_dir)

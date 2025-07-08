@@ -3,7 +3,7 @@ import json
 from PIL import Image
 
 # Define paths
-yolo_base_dir = "/home/dartagnan-dev/sahil-dev/model_testing/Detectron2_test"
+yolo_base_dir = "E:/your/path/to/Detectron2_test"
 image_dirs = {"train": "train", "test": "test", "val": "val"}
 label_dirs = {"train": "train", "test": "test", "val": "val"}
 

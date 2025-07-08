@@ -109,7 +109,7 @@ The datasets used in this project include both raw and arranged data, which have
 
 ## 03. Preprocessing and Annotation
 
-### Range-Azimuth Dataset Creation
+### 3.1 Range-Azimuth Dataset Creation
 To convert collected raw log files into range-azimuth 2D histogram frames, execute the following command:
 ```bash
 cd 02_DataPreprocessing/Yolov7/
@@ -177,6 +177,56 @@ cd 02_DataPreprocessing/Detectron2/
 python3 yolo_to_coco.py
 ```
 
+## 3.2 3D Point Cloud Dataset Creation
+
+To convert collected raw log files into 3D point cloud frames, execute the following command. This will generate the dataset in `.pcd` format, which is required for the annotation software LabelCloud:
+```bash
+cd 02_DataPreprocessing/OpenPCdet/
+python3 txt_to_pcd.py
+```
+### Annotation Process
+
+Use [LabelCloud](https://github.com/ch-sa/labelCloud) for annotation:
+
+- Load converted `.pcd` frames  
+- Draw bounding boxes  
+- Save annotations in `.txt` format
+
+<p align="center">
+  <img src="docs/labelcloud_example.png" alt="LabelImg Interface" width="800"/>
+</p>
+
+### Dataset Format for OpenPCDet
+
+After annotation is complete, convert the `.pcd` format dataset to `.npy` format, as the model requires data in `.npy` format. Use the following command:
+```bash
+cd 02_DataPreprocessing/OpenPCdet/
+python3 pcd_to_npy.py
+```
+
+Once the conversion is done, organize the dataset as follows:
+```
+-images/
+   ├── imageSets/
+   │   ├── train.txt
+   │   └── val.txt
+   ├── points/
+   │   ├── 00001.npy
+   │   ├── 00002.npy
+   │   └── ...
+   └── labels/
+       ├── 00001.txt
+       ├── 00002.txt
+       └── ...
+```
+- `imageSets/` contains text files (`train.txt`, `val.txt`) listing the frame numbers for training and validation splits.
+
+- `points/` contains the point cloud data in `.npy` format.
+
+- `labels/` contains annotation files in `.txt` format.
+
+**Label Format:**  
+`x y z dx dy dz heading class_name`
 
 
 ## 04. Model Training & Evaluation
