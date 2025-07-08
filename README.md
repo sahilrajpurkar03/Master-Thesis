@@ -88,17 +88,92 @@ Refer to the image for physical connection and jumper setup:
    cd 01_SensorIntegration
    python py_mmw_main.py
 
+## Captured Output Data
+- Saved in: `01_SensorIntegration/log/` as `.txt` files
+- Contains per timestamp:
+  - Number of points detected
+  - Range, azimuth, elevation
+  - x,y,z coordinates
+  - Velocity (v)
+  - Range profile and SNR
+
 ## 02. Data Collection
 
 The datasets used in this project include both raw and arranged data, which have been made publicly available on Kaggle.
 
 - **Kaggle Repository – Arranged Dataset:**  
-  [https://www.kaggle.com/mmwave-radar-dataset](https://www.kaggle.com/mmwave-radar-dataset)
+  [https://www.kaggle.com/mmwave-radar-dataset](https://kaggle.com/datasets/a5860c7266e6d1191bf4a4aa9ae23b057b86e63d9d10982285d128fb0957a796)
 
 - **Kaggle Repository – Raw Dataset:**  
-  [https://www.kaggle.com/mmwave-radar-dataset-raw](https://www.kaggle.com/mmwave-radar-dataset-raw)
+  [https://www.kaggle.com/mmwave-radar-dataset-raw](https://kaggle.com/datasets/f7de6334ad0bf5c2c828f40989f076e88b08063e22bbbd680a722276482816fc)
 
 ## 03. Preprocessing and Annotation
+
+### Range-Azimuth Dataset Creation
+Convert raw log files to 2D histogram frames:
+```bash
+cd 02_DataPreprocessing/Yolov7/
+python3 Gen-Range-Azimuth-2D-Histogram.py
+```
+
+### Annotation Process
+1. Use [LabelImg](https://github.com/HumanSignal/labelImg) for annotation:
+   - Load images
+   - Draw bounding boxes
+   - Save annotations in YOLOv7 format
+
+<p align="center">
+  <img src="docs/labelimg_example.png" alt="LabelImg Interface" width="400"/>
+</p>
+
+### Dataset Directory Structure
+
+#### For YOLOv7:
+```
+-images/
+   ├── test/
+   │   ├── frame0001.jpg
+   │   └── ...
+   ├── train/
+   │   ├── frame0100.jpg
+   │   └── ...
+   └── val/
+       ├── frame0150.jpg
+       └── ...
+-labels/
+   ├── test/
+   │   ├── frame0001.txt
+   │   └── ...
+   ├── train/
+   │   ├── frame0100.txt
+   │   └── ...
+   └── val/
+       ├── frame0150.txt
+       └── ...
+```
+**Label Format:**  
+`<class_id> <x_center> <y_center> <width> <height>`
+
+#### For Detectron2:
+```
+-images/
+   ├── train/
+   │   ├── annotations.coco.json
+   │   ├── frame0001.jpg
+   │   └── ...
+   └── test/
+       ├── annotations.coco.json
+       ├── frame0100.jpg
+       └── ...
+```
+
+Convert YOLO to COCO format:
+```bash
+cd 02_DataPreprocessing/Detectron2/
+python3 yolo_to_coco.py
+```
+
+
 
 ## 04. Model Training & Evaluation
 ## 05. Real-Time Testing
