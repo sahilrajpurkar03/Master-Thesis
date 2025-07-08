@@ -110,25 +110,28 @@ The datasets used in this project include both raw and arranged data, which have
 ## 03. Preprocessing and Annotation
 
 ### Range-Azimuth Dataset Creation
-Convert raw log files to 2D histogram frames:
+To convert collected raw log files into range-azimuth 2D histogram frames, execute the following command:
 ```bash
 cd 02_DataPreprocessing/Yolov7/
 python3 Gen-Range-Azimuth-2D-Histogram.py
 ```
 
 ### Annotation Process
-1. Use [LabelImg](https://github.com/HumanSignal/labelImg) for annotation:
+Use [LabelImg](https://github.com/HumanSignal/labelImg) for annotation:
    - Load images
    - Draw bounding boxes
    - Save annotations in YOLOv7 format
 
+This process generates labels in YOLOv7 format.
+
 <p align="center">
-  <img src="docs/labelimg_example.png" alt="LabelImg Interface" width="400"/>
+  <img src="docs/labelimg_example.png" alt="LabelImg Interface" width="800"/>
 </p>
 
 ### Dataset Directory Structure
 
 #### For YOLOv7:
+Organize the dataset in the following structure for train/test/validation splits:
 ```
 -images/
    ├── test/
@@ -155,6 +158,7 @@ python3 Gen-Range-Azimuth-2D-Histogram.py
 `<class_id> <x_center> <y_center> <width> <height>`
 
 #### For Detectron2:
+Organize the dataset as follows:
 ```
 -images/
    ├── train/
@@ -167,7 +171,7 @@ python3 Gen-Range-Azimuth-2D-Histogram.py
        └── ...
 ```
 
-Convert YOLO to COCO format:
+To convert YOLO annotations to COCO format for Detectron2, run:
 ```bash
 cd 02_DataPreprocessing/Detectron2/
 python3 yolo_to_coco.py
