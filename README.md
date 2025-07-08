@@ -1,5 +1,6 @@
 # Master Thesis: **Towards 6G-Driven Sensing: Development of Machine Learning-based Object Detection for Logistics Entities using mmWave Radar Sensor**
 
+![OpenPCDet Result](docs/openpcdet_result.gif)
 ---
 
 ## 📄 Thesis Overview
@@ -300,7 +301,7 @@ This will generate label `.txt` files for the given images and save them under t
 
 ### 4.2 [Detectron2](https://github.com/facebookresearch/detectron2) Model Training
 #### Dataset Preparation
-After arranging the dataset, move the dataset folders to the following directories:`03_ModelTraining/Detectron2/images`
+Move the dataset folders to the following directories:`03_ModelTraining/Detectron2/images`
 
 #### Training and Evaluation of the Model
 
@@ -313,34 +314,149 @@ The trained model and output files can be found in the following directory: `03_
 
 ### 4.3 [OpenPCdet](https://github.com/open-mmlab/OpenPCDet) Model Training
 
-## 05. Real-Time Testing
-## 06. Results & Analysis
-## 07. Future Work
+#### Dataset Preparation
+Move your dataset folders to the following directory:`03_ModelTraining/OpenPCDet/data/custom`
 
----
+#### Installation the Model
+
+Ensure that the correct CUDA version and NVIDIA drivers are installed on your system.
+
+Install the OpenPCDet model using the following commands:
+
+```bash
+cd 03_ModelTraining/OpenPCDet
+python3 python3 setup.py
+```
+#### Configuration Settings
+
+Point Cloud Features:
+
+Modify the following configurations in `custom_dataset.yaml` to match your point cloud features:
+
+```yaml
+POINT_FEATURE_ENCODING: {
+    encoding_type: absolute_coordinates_encoding,
+    used_feature_list: ['x', 'y', 'z', 'intensity'],
+    src_feature_list: ['x', 'y', 'z', 'intensity'],
+}
+
+# In gt_sampling data augmentation
+NUM_POINT_FEATURES: 4
+```
+
+Point Cloud Range and Voxel Sizes:
+
+For voxel-based detectors such as **SECOND**, **PV-RCNN**, and **CenterPoint**:
+
+- The point cloud range along the **z-axis divided by voxel size** should equal **40**.
+- The point cloud range along the **x & y-axis divided by voxel size** should be a **multiple of 16**.
+
+> **Note:** This rule also applies to pillar-based detectors such as **PointPillar** and **CenterPoint-Pillar**.
+
+Category Names and Anchor Sizes:
+
+Adapt category names and anchor sizes to your custom dataset in `custom_dataset.yaml`:
+
+```yaml
+CLASS_NAMES: ['Vehicle', 'Pedestrian', 'Cyclist']
+
+MAP_CLASS_TO_KITTI: {
+    'Vehicle': 'Car',
+    'Pedestrian': 'Pedestrian',
+    'Cyclist': 'Cyclist',
+}
+
+anchor_sizes: [[3.9, 1.6, 1.56]]
+
+PREPARE: {
+    filter_by_min_points: ['Vehicle:5', 'Pedestrian:5', 'Cyclist:5'],
+    filter_by_difficulty: [-1],
+}
+
+SAMPLE_GROUPS: ['Vehicle:20', 'Pedestrian:15', 'Cyclist:15']
+```
+Create Data Info:
+
+Modify `custom_dataset.py` for creating data infos:
+
+```python
+create_custom_infos(
+    dataset_cfg=dataset_cfg,
+    class_names=['Vehicle', 'Pedestrian', 'Cyclist'],
+    data_path=ROOT_DIR / 'data' / 'custom',
+    save_path=ROOT_DIR / 'data' / 'custom',
+)
+```
+Generate the data info files by running:
+```bash
+   python -m pcdet.datasets.custom.custom_dataset create_custom_infos tools/cfgs/dataset_configs/custom_dataset.yaml
+```
+
+#### Training and Evaluation of the Model
+
+Train the OpenPCDet model with the following command:
+
+```bash
+   cd 03_ModelTraining/OpenPCDet
+   python -m pcdet.train --cfg_file cfgs/kitti_models/pv_rcnn.yaml
+```
+
+The following utility scripts are available for evaluation and visualization:
+- Generate F1 Curve, PR Curve, and Confusion Matrix: `03_ModelTraining/OpenPCDet/gen_PR_F1_curve_CF_matrix.py`
+- Generate prediction images: `03_ModelTraining/OpenPCDet/gen_vis_prediction.py` 
+- Create a video from prediction images: `03_ModelTraining/OpenPCDet/gen_vis_prediction_video.py`
+
+## 05. Real-Time Testing
+For real time testing, run the sensor integration script and then run the following command to check the real time detection:
+
+```bash
+cd 03_ModelTraining/Yolov7/yolov7
+python3 online_model_test.py
+```
+Here is the small video of online testing:
+
+![Online Testing Demo](docs/online_model_testing.gif)
+
+## 06. Results & Analysis
+
+Here is the result for the range-azimuth 2D histogram dataset using the Yolov7 trained model:
+
+![Yolov7 Result](docs/yolov7_result.gif)
+
+Here is the result of the 3D point cloud dataset using the OpenPCDet model:
+
+![OpenPCDet Result](docs/openpcdet_result.gif)
+
+This result is compared with the benchmarked detection system (Vicon), and here is the comparison graph of it:
+
+![Comparison Graph](docs/comparsion.png)
+
+## 07. Future Work
+This study focuses on object detection for indoor logistics using mmWave radar sensors, leveraging range-azimuth and 3D point cloud data. Future improvements include integrating additional sensor outputs like velocity and SNR through parallel models, expanding coverage with multiple sensors and stitching algorithms, and using higher-resolution industrial-grade radars for denser point clouds enabling object segmentation. Applications extend to real-time object avoidance on mobile robots, aerial monitoring with drones, and collaborative robotics, aiming to develop more accurate and versatile sensing systems for indoor logistics and beyond.
 
 ## Project Information
 
-**University:**  
+```bash
+University:  
 Technical University Dortmund (Technische Universität Dortmund)  
 Faculty of Mechanical Engineering  
 Chair of Material Handling and Warehousing  
 
-**Thesis Title:**  
+Thesis Title: 
 Towards 6G-Driven Sensing: Development of Machine Learning-based Radar Object Detection for Logistics Entities  
 
-**Degree Program:**  
+Degree Program:  
 Master of Science in Automation and Robotics  
 
-**Presented by:**  
+Presented by:  
 Sahil Sanjay Rajpurkar    
 
-**Supervisors:**  
+Supervisors: 
 - First Examiner: Prof.’in Dr.-Ing. Alice Kirchheim  
 - Second Examiner: Irfan Fachrudin Priyanta, M.Sc.   
 
-**Place of Submission:** Dortmund, Germany  
-
+Place of Submission: Dortmund, Germany  
+```
 ---
 
 © 2025 Sahil Sanjay Rajpurkar.  
