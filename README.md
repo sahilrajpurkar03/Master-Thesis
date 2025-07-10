@@ -434,18 +434,17 @@ This result is compared with the benchmarked detection system (Vicon), and here 
 ## 07. Future Work
 This study focuses on object detection for indoor logistics using mmWave radar sensors, leveraging range-azimuth and 3D point cloud data. Future improvements include integrating additional sensor outputs like velocity and SNR through parallel models, expanding coverage with multiple sensors and stitching algorithms, and using higher-resolution industrial-grade radars for denser point clouds enabling object segmentation. Applications extend to real-time object avoidance on mobile robots, aerial monitoring with drones, and collaborative robotics, aiming to develop more accurate and versatile sensing systems for indoor logistics and beyond.
 
----
-
 ## Documentation
 
-For detailed documentation, please refer to the report:  
-[docs/MasterThesisReport.pdf](docs/report/MasterThesisReport_242976_Towards6GSensing.pdf)
+For comprehensive information, please refer to the following resources:
 
----
+- 📄 **Thesis Report**: [MasterThesisReport_Towards6GSensing.pdf](docs/report/MasterThesisReport_Towards6GSensing.pdf)  
+- 📊 **Presentation Slides**: [View on Google Slides](https://docs.google.com/presentation/d/1xG4GFKfBRBBn9AHZXxzH9wTEhMkXRKzZ/edit?usp=drive_link&ouid=106373210442044327603&rtpof=true&sd=true)  
+- 🎥 **Presentation Video**: [Watch on Google Drive](https://drive.google.com/file/d/1qwa-ioMouso5uBDjkdK7SJ49DNsSAqRX/view?usp=drive_link)
 
 ## Project Information
 
-```bash
+```
 University:  
 Technical University Dortmund (Technische Universität Dortmund)  
 Faculty of Mechanical Engineering  
